@@ -6,14 +6,13 @@ Abrian roddriguez 3/6/17
 shootr
 
 ## What is [name of game]?
-shootr
 (Brief description of the game, why you're choosing to make it)
-2d shooter
+2d shooter, im not sure if this is what i want to make but fo rnow its this, im making it because its one of the ideas ive had for a long time, i was going to make it in react back in april, never got around to it
 
 ## Wireframe
 
 (Your wireframes go here. Preferably two or more)
-
+its in my repo files
 ## Initial thoughts on game structure
 enemies shootr- sorta like galaga, not as mnay enemies tho
 (Write out what challenges you expect to encounter, or ideas you want to come up with)
