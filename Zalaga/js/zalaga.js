@@ -21,7 +21,7 @@ $(document).keydown(function(e){
 let bullet = createCharacters('bullet', 600, 700, 200, 200);
 let zombies = [];
 
-let lastLoopRun = 0;
+let timeBefore = 0;
 let points =0;
 
 //*************** get game sounds *****************
@@ -235,7 +235,7 @@ function random(size){
 //************** main game loop *******************
 
 function loop(){
-    if(new Date().getTime() - lastLoopRun > 40) {
+    if(new Date().getTime() - timeBefore > 40) {
 
         embedCharacters();
         addZombies();
@@ -276,7 +276,7 @@ function loop(){
 
         collision();
 
-        lastLoopRun = new Date().getTime();
+        timeBefore = new Date().getTime();
     }
     setTimeout('loop();', 2);
 }
