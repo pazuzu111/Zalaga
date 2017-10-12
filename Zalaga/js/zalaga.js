@@ -22,7 +22,7 @@ let bullet = createCharacters('bullet', 600, 700, 200, 200);
 let zombies = [];
 
 let timeBefore = 0;
-let points =0;
+let points = 0;
 
 //*************** get game sounds *****************
 
@@ -69,8 +69,10 @@ $(document).keydown(function(e){
     }
     else if (e.keyCode == 13)
     {
+        //play sound
         play()
 
+        //run loop
         let loop = setInterval(function(){
 
             //run by 7s
@@ -85,6 +87,7 @@ $(document).keydown(function(e){
             }
         }, 50);
     }
+    //set bounds
     bounds(bullet, true)
 });
 
