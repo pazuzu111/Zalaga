@@ -88,70 +88,6 @@ $(document).keydown(function(e){
     bounds(bullet, true)
 });
 
-//**************** collision helper ****************
-
-function intersects(a, b){
-
-    return  a.x < b.x +
-            b.w && a.x +
-            a.w > b.x && a.y < b.y +
-            b.h && a.y + a.h > b.y;
-}
-
-//************ apply collision function ************
-
-function collision(){
-
-    for (let i = 0; i < zombies.length; i++){
-
-        if (intersects(bullet, zombies[i]))
-        {
-            //increment points & output to screen
-            points++;
-            $('#points').text(`${points}`)
-
-            //test for level checkpoints
-            if(points == 100 || points == 200
-            || points == 300 || points == 400
-            || points == 500 || points == 600
-            || points == 700)
-            {
-                alert("next Level!!!")
-
-            }
-
-            //if points == 1000 game won!
-            if(points == 1000)
-            {
-                alert("you win for today take a break!!!")
-                location.reload()
-            }
-
-            //get zombie
-            let zombiei = document.getElementById(zombies[i].element);
-
-            //trigger zombie hurt sound
-            zombieHit()
-
-            //remove from screen
-            zombiei.remove()
-
-            //remove from array
-            zombies.splice(i, 1);
-            i--;
-
-            //set bullet back to 700
-            bullet.y = 700;
-
-        }
-        else if (zombies[i].y + zombies[i].h >= 800)
-        {
-            //zombie reached behind you,- you lose!
-            location.reload()
-            alert("you lost!!!")
-        }
-    }
-}
 
 //*************** create characters ****************
 
@@ -224,6 +160,72 @@ function moveZombies(speed){
 
     });
 }
+
+//**************** collision helper ****************
+
+function intersects(a, b){
+
+    return  a.x < b.x +
+            b.w && a.x +
+            a.w > b.x && a.y < b.y +
+            b.h && a.y + a.h > b.y;
+}
+
+//************ apply collision function ************
+
+function collision(){
+
+    for (let i = 0; i < zombies.length; i++){
+
+        if (intersects(bullet, zombies[i]))
+        {
+            //increment points & output to screen
+            points++;
+            $('#points').text(`${points}`)
+
+            //test for level checkpoints
+            if(points == 100 || points == 200
+            || points == 300 || points == 400
+            || points == 500 || points == 600
+            || points == 700)
+            {
+                alert("next Level!!!")
+
+            }
+
+            //if points == 1000 game won!
+            if(points == 1000)
+            {
+                alert("you win for today take a break!!!")
+                location.reload()
+            }
+
+            //get zombie
+            let zombiei = document.getElementById(zombies[i].element);
+
+            //trigger zombie hurt sound
+            zombieHit()
+
+            //remove from screen
+            zombiei.remove()
+
+            //remove from array
+            zombies.splice(i, 1);
+            i--;
+
+            //set bullet back to 700
+            bullet.y = 700;
+
+        }
+        else if (zombies[i].y + zombies[i].h >= 800)
+        {
+            //zombie reached behind you,- you lose!
+            location.reload()
+            alert("you lost!!!")
+        }
+    }
+}
+
 //*********** random helper function  *************
 
 function random(size){
